@@ -18,19 +18,23 @@
   }: let
     x86pkgs = nixpkgs.legacyPackages.x86_64-linux;
     x86bun2nix = bun2nix-baseline.packages.x86_64-linux.default;
+    version = "v1.1.6";
   in {
     formatter.x86_64-linux = x86pkgs.alejandra;
 
     packages.x86_64-linux = {
-      default = self.packages.x86_64-linux.hello;
+      default = self.packages.x86_64-linux."mindwtr";
+      "mindwtr" = x86pkgs.callPackage ./pkgs/mindwtr/desktop {
+        bun2nix = x86bun2nix;
+        inherit version;
+      };
       "mindwtr-web" = x86pkgs.callPackage ./pkgs/mindwtr/web {
         bun2nix = x86bun2nix;
-      };
-      "mindwtr-desktop" = x86pkgs.callPackage ./pkgs/mindwtr/desktop {
-        bun2nix = x86bun2nix;
+        inherit (self.packages.x86_64-linux."mindwtr") version src;
       };
       "mindwtr-cloud" = x86pkgs.callPackage ./pkgs/mindwtr/cloud {
         bun2nix = x86bun2nix;
+        inherit (self.packages.x86_64-linux."mindwtr") version src;
       };
     };
   };

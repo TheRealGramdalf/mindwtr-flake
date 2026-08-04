@@ -11,17 +11,17 @@
   libayatana-appindicator,
   gtk3,
   wrapGAppsHook3,
+  lib,
 }: let
-  version = "v1.1.6";
   cargoRoot = "apps/desktop/src-tauri";
 in
   rustPlatform.buildRustPackage {
-    pname = "mindwtr-desktop";
-    inherit version;
+    pname = "mindwtr";
+    version = "v1.1.6";
     src = fetchFromGitHub {
       owner = "dongdongbh";
       repo = "mindwtr";
-      tag = version;
+      tag = "v1.1.6";
       hash = "sha256-5zGeQ8Y4HS1BwihgRyyWgzUfFu4vIkrqvQPWcycy19o=";
     };
     cargoHash = "sha256-PY1hms2f+m2M2Pu22EHyh9dBrVeaOGk8Sw16mqr6yi8=";
@@ -57,4 +57,11 @@ in
 
     inherit cargoRoot;
     buildAndTestSubdir = cargoRoot;
+
+    meta = {
+      maintainers = [lib.maintainers.therealgramdalf];
+      homepage = "https://mindwtr.app/";
+      description = "Desktop app for Mindwtr, a complete Getting Things Done (GTD) productivity system - Mind Like Water";
+      license = lib.licenses.agpl3Only;
+    };
   }
