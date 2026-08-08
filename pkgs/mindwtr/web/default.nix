@@ -25,9 +25,9 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    mkdir -p $out/dist
+    mkdir -p $out
 
-    cp -R --reflink=auto ./apps/desktop/dist $out
+    cp -R --reflink=auto ./apps/desktop/dist/. $out
   '';
 
   meta = {
