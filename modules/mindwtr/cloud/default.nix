@@ -46,11 +46,6 @@ in {
       '';
     };
 
-    port = mkOption {
-      type = types.port;
-      description = "The port to listen on, passed as `--port`";
-      default = 5173;
-    };
 
     environment = mkOption {
       description = ''
@@ -65,6 +60,26 @@ in {
         freeformType = types.attrsOf (nullOr (types.oneOf [str types.path types.package]));
 
         options = {
+          PORT = mkOption {
+            type = types.port;
+            description = ''
+              The port the server should listen on
+
+              This will be automatically converted to a string
+            '';
+            default = 8787;
+            apply = p: toString p;
+          };
+          HOST = mkOption {
+            type = types.nullOr str;
+            example = null;
+            description = ''
+              The address the server should listen on
+
+              For security, this defaults to `localhost`. To use the upstream default of `0.0.0.0`, set this to `null`
+            '';
+            default = "127.0.0.1";
+          };
           MINDWTR_CLOUD_AUTH_TOKENS_FILE = mkOption {
             type = types.path;
             default = null;
@@ -136,7 +151,7 @@ in {
       startLimitBurst = 5;
       environment = {} // cfg.environment;
       serviceConfig = {
-        ExecStart = "${lib.getExe cfg.package} -- --port ${toString cfg.port}";
+        ExecStart = "${lib.getExe cfg.package}";
         Type = "simple";
         User = cfg.user;
         Group = cfg.group;
