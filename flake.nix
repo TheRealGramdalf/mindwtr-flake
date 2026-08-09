@@ -19,7 +19,20 @@
     x86pkgs = nixpkgs.legacyPackages.x86_64-linux;
     x86bun2nix = bun2nix-baseline.packages.x86_64-linux.default;
   in {
+    devShells.x86_64-linux."default" = x86pkgs.mkShellNoCC {
+      name = "mindwtr-bun2nix";
+      meta.description = "Devshell with bun and the bun2nix binary";
+      # Instructions:
+      packages = with x86pkgs; [
+        bun
+        x86bun2nix
+        http-server
+        # cargo-tauri
+        # cargo
+      ];
+    };
     formatter.x86_64-linux = x86pkgs.alejandra;
+    nixosModules."default" = {imports = [./modules/mindwtr/cloud ./modules/mindwtr/web];};
 
     packages.x86_64-linux = {
       default = self.packages.x86_64-linux."mindwtr";
