@@ -20,3 +20,52 @@ All three packages can be considered generally stable. There should be few (if a
 The packages are currently only made available for `x86_64-linux`, but should be adaptable to other platforms. Please open an issue if you need this.
 
 The NixOS modules should be considered functional, but not perfect. There are currently no guarantees that the options will remain the same or backwards compatibility will be maintained. This is a concious desicion so that I can release the module and make it available to others, without having to lock down a perfect implementation the first time around or committing to support certain options long term. In the worst case, this should only require manually renaming certain options or moving/fixing permissions of server data.
+
+## Usage
+
+Below is a minimal example of how to use this flake:
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    mindwtr-flake = {
+      url = "github:therealgramdalf/mindwtr-flake";
+      inputs.nixpkgs.follows = "nixpkgs"; # Rename this if your nixpkgs input isn't named `nixpkgs`
+    };
+  };
+
+  # In this context, `inputs @` essentially means "create an attribute set containing all flake inputs". This way, you can just
+  # use `...` to accept any arguments, rather than adding each extra input like `outputs = {nixpkgs, mindwtr-flake}:`,
+  # and manually adding `mindwtr-flake` to `specialArgs`
+  outputs = inputs @ {nixpkgs, ...}: {
+    nixosConfigurations = {
+      "your-systems-hostname" = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          # Pass `inputs` to your configuration, or it won't be accessible
+          inherit inputs;
+        };
+        modules = [
+          # Import the NixOS modules (`services.mindwtr.*`) to make them available if needed
+          # You can remove this if you aren't using them to speed up evaluation slightly
+          inputs.mindwtr-flake.nixosModules.default
+          ./configuration.nix
+        ];
+      };
+    };
+  };
+}
+```
+
+To use the packages in e.g. your `configuration.nix`:
+
+```nix
+# Bring the `inputs` specialArg into scope
+{inputs, ...}: {
+  environment.systemPackages = [
+    # The quotes aren't necessary, but I like to use them to highlight important
+    # parts of code with syntax highlighting
+    inputs."mindwtr-flake".packages.x86_64-linux."mindwtr"
+  ];
+}
+```
