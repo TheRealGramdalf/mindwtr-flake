@@ -46,7 +46,6 @@ in {
       '';
     };
 
-
     environment = mkOption {
       description = ''
         Environment variables added to {option}`systemd.services."mindwtr-cloud".environment`
