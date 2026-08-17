@@ -20,18 +20,18 @@
   git,
 }: let
   cargoRoot = "apps/desktop/src-tauri";
-  version = "1.1.6";
+  version = "1.2.1";
   src = fetchFromGitHub {
     owner = "dongdongbh";
     repo = "mindwtr";
     tag = "v${version}";
-    hash = "sha256-5zGeQ8Y4HS1BwihgRyyWgzUfFu4vIkrqvQPWcycy19o=";
+    hash = "sha256-VSe+Tvs/7F6S/SYNClIgLO1GQ88t84WP8z7ZXdn7iiI=";
   };
 in
   rustPlatform.buildRustPackage {
     pname = "mindwtr";
     inherit version src;
-    cargoHash = "sha256-PY1hms2f+m2M2Pu22EHyh9dBrVeaOGk8Sw16mqr6yi8=";
+    cargoHash = "sha256-dJfy8K9w+kpDkyV63dHoNT6zdFuYfxcdQ2wbxDldIG0=";
 
     passthru = {
       updateScript = _experimental-update-script-combinators.sequence [
