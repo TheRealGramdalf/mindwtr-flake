@@ -69,3 +69,14 @@ To use the packages in e.g. your `configuration.nix`:
   ];
 }
 ```
+
+## Updating
+
+Updating the package versions (including the `cargoHash` and `bun.nix` lock file) is accomplished via `nix-update` and a crude helper script,
+and can be invoked with the following: 
+
+```sh
+nix-update --flake mindwtr -u
+```
+
+`nix-update` must be available in `$PATH`, and you currently must be at the project root (the directory containing this file).

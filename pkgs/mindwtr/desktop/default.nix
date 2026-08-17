@@ -11,20 +11,66 @@
   libayatana-appindicator,
   gtk3,
   wrapGAppsHook3,
+  nix-update-script,
   lib,
+  _experimental-update-script-combinators,
+  writeShellApplication,
+  nix,
+  statix,
+  git,
 }: let
   cargoRoot = "apps/desktop/src-tauri";
+  version = "1.1.6";
+  src = fetchFromGitHub {
+    owner = "dongdongbh";
+    repo = "mindwtr";
+    tag = "v${version}";
+    hash = "sha256-5zGeQ8Y4HS1BwihgRyyWgzUfFu4vIkrqvQPWcycy19o=";
+  };
 in
   rustPlatform.buildRustPackage {
     pname = "mindwtr";
-    version = "v1.1.6";
-    src = fetchFromGitHub {
-      owner = "dongdongbh";
-      repo = "mindwtr";
-      tag = "v1.1.6";
-      hash = "sha256-5zGeQ8Y4HS1BwihgRyyWgzUfFu4vIkrqvQPWcycy19o=";
-    };
+    inherit version src;
     cargoHash = "sha256-PY1hms2f+m2M2Pu22EHyh9dBrVeaOGk8Sw16mqr6yi8=";
+
+    passthru = {
+      updateScript = _experimental-update-script-combinators.sequence [
+        (nix-update-script {
+          extraArgs = [
+            "--flake"
+          ];
+        })
+        (lib.getExe (writeShellApplication {
+          name = "bun2nix-update-deps";
+          runtimeInputs = [
+            bun2nix
+            nix
+            statix
+          ];
+          text = ''
+            [[ -f ./flake.nix ]]
+            cd ${src}
+            bun2nix | grep -Ev '^\s*?".*?" = copyPathToStore ./.*?;$' > "$OLDPWD/pkgs/mindwtr/bun.nix"
+          '';
+        }))
+        (nix-update-script {
+          extraArgs = [
+            "--flake"
+            "--commit"
+          ];
+        })
+        (lib.getExe (writeShellApplication {
+          name = "commit-bun-lockfile";
+          runtimeInputs = [
+            git
+          ];
+          text = ''
+            git add pkgs/mindwtr/bun.nix
+            git commit --amend --no-edit
+          '';
+        }))
+      ];
+    };
 
     nativeBuildInputs = [
       bun2nix.hook
