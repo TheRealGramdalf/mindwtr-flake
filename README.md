@@ -72,6 +72,9 @@ To use the packages in e.g. your `configuration.nix`:
 
 ## Updating
 
+> [!WARNING] 
+> The current update script implementation means that the `bun.nix` file won't be updated correctly. For now, simply running the update command twice is a technically functional workaround. A better solution is still in the works.
+
 Updating the package versions (including the `cargoHash` and `bun.nix` lock file) is accomplished via `nix-update` and a crude helper script,
 and can be invoked with the following: 
 
