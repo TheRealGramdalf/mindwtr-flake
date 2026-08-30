@@ -11,9 +11,8 @@ in {
     enable = lib.mkEnableOption "serving the webapp for Mindwtr, a complete GTD task manager";
     package = lib.mkPackageOption pkgs "mindwtr-web" {
       default = null;
-      example = lib.literalExpression ''
-        inputs.mindwtr-flake.packages.x86_64-linux."mindwtr-web"
-      '';
+      nullable = true;
+      example = "inputs.mindwtr-flake.x86_64-linux.mindwtr-web";
     };
 
     nginx = {
