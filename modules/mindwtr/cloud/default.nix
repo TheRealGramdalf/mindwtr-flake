@@ -13,9 +13,8 @@ in {
 
     package = lib.mkPackageOption pkgs "mindwtr-cloud" {
       default = null;
-      example = lib.literalExpression ''
-        inputs.mindwtr-flake.packages.x86_64-linux."mindwtr-cloud"
-      '';
+      nullable = true;
+      example = "inputs.mindwtr-flake.packages.x86_64-linux.mindwtr-cloud";
     };
 
     user = mkOption {
