@@ -41,7 +41,7 @@ in {
       virtualHost = mkOption {
         type = types.nullOr types.str;
         default = null;
-        description = lib.literalMd ''
+        description = lib.literalMD ''
           Host to serve the webapp under
 
           To change or override further nginx settings, use the following:
