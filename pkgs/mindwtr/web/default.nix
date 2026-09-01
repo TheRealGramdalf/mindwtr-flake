@@ -21,14 +21,11 @@ stdenv.mkDerivation {
   ];
 
   buildPhase = ''
-    bun run desktop:web:build
-  '';
-
-  installPhase = ''
     mkdir -p $out
-
-    cp -R --reflink=auto ./apps/desktop/dist/. $out
+    bun run desktop:web:build -- --outDir $out
   '';
+
+  dontInstall = true;
 
   meta = {
     maintainers = [lib.maintainers.therealgramdalf];
