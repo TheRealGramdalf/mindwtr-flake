@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "bun2nix-baseline": {
+    "bun2nix": {
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": [
@@ -10,23 +10,23 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1788213925,
-        "narHash": "sha256-cUuPITDMq9QzNgW+nxiAxxRsiXWbijFvS16Eex6eBeA=",
-        "owner": "therealgramdalf",
-        "repo": "bun2nix-baseline",
-        "rev": "39e476fab536eb718fe13b60a98e950fa8ea8eb1",
+        "lastModified": 1784665499,
+        "narHash": "sha256-9BMxlTxCCDAeoNLtb1a/st7udtTIJep+wpUzquA29VU=",
+        "owner": "nix-community",
+        "repo": "bun2nix",
+        "rev": "0f2a1f0b6f42cebe3b149bf62d38754c5e0e9729",
         "type": "github"
       },
       "original": {
-        "owner": "therealgramdalf",
-        "repo": "bun2nix-baseline",
+        "owner": "nix-community",
+        "repo": "bun2nix",
         "type": "github"
       }
     },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
-          "bun2nix-baseline",
+          "bun2nix",
           "nixpkgs"
         ]
       },
@@ -62,7 +62,7 @@
     },
     "root": {
       "inputs": {
-        "bun2nix-baseline": "bun2nix-baseline",
+        "bun2nix": "bun2nix",
         "nixpkgs": "nixpkgs"
       }
     },
@@ -84,7 +84,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "bun2nix-baseline",
+          "bun2nix",
           "nixpkgs"
         ]
       },

@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    bun2nix-baseline = {
-      url = "github:therealgramdalf/bun2nix-baseline";
+    bun2nix = {
+      url = "github:nix-community/bun2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -13,11 +13,11 @@
   outputs = {
     self,
     nixpkgs,
-    bun2nix-baseline,
+    bun2nix,
     ...
   }: let
     x86pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    x86bun2nix = bun2nix-baseline.packages.x86_64-linux.default;
+    x86bun2nix = bun2nix.packages.x86_64-linux.default;
   in {
     devShells.x86_64-linux."default" = x86pkgs.mkShellNoCC {
       name = "mindwtr-bun2nix";
