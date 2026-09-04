@@ -10,7 +10,7 @@ if [ ! -e "$gitroot/pkgs/mindwtr/bun.nix" ]; then
 fi
 
 
-nix-update --flake mindwtr --commit
+nix-update --flake mindwtr --commit "$@"
 
 src="$(nix build "$gitroot"#mindwtr.src --no-link --print-out-paths)"
 
