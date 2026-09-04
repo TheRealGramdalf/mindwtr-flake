@@ -15,6 +15,11 @@ bun2nix.writeBunApplication {
 
   bunDeps = bun2nix.fetchBunDeps {
     bunNix = ../bun.nix;
+    overrides = bun2nix.patchedDependenciesToOverrides {
+      patchedDependencies = lib.mapAttrs (_: path: (src + "/${path}")) (
+        (lib.importJSON (src + /package.json)).patchedDependencies
+      );
+    };
   };
   bunInstallFlags = [
     "--linker=hoisted"
