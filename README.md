@@ -72,14 +72,15 @@ To use the packages in e.g. your `configuration.nix`:
 
 ## Updating
 
-> [!WARNING] 
-> The current update script implementation means that the `bun.nix` file won't be updated correctly. For now, simply running the update command twice is a technically functional workaround. A better solution is still in the works.
+A helper script has been added to the default devshell which will:
+- Ensure the git repository is clean
+- Call `nix-update` to update the source, package version, and `cargoHash`, then commit those changes
+- Generate `bun.nix` from the new `src` version
+- `git commit --amend` `bun.nix`
 
-Updating the package versions (including the `cargoHash` and `bun.nix` lock file) is accomplished via `nix-update` and a crude helper script,
-and can be invoked with the following: 
-
+To run the script, run:
 ```sh
-nix-update --flake mindwtr -u
-```
+nix develop
 
-`nix-update` must be available in `$PATH`, and you currently must be at the project root (the directory containing this file).
+update-mindwtr
+```
