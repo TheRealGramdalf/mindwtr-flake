@@ -6,7 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/2c423e03bbafcff28bfadc6781a4a8257f205cb5";
 
     bun2nix = {
-      url = "github:therealgramdalf/bun2nix-baseline";
+      url = "github:nix-community/bun2nix/pull/103/head";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
