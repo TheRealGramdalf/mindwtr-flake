@@ -27,8 +27,15 @@
         bun
         x86bun2nix
         http-server
-        # cargo-tauri
-        # cargo
+        (writeShellApplication {
+          name = "update-mindwtr";
+          runtimeInputs = [
+            x86bun2nix
+            git
+            nix-update
+          ];
+          text = builtins.readFile ./mindwtr-update-script.sh;
+        })
       ];
     };
     formatter.x86_64-linux = x86pkgs.alejandra;
