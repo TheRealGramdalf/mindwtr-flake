@@ -11,13 +11,7 @@
   libayatana-appindicator,
   gtk3,
   wrapGAppsHook3,
-  nix-update-script,
   lib,
-  _experimental-update-script-combinators,
-  writeShellApplication,
-  nix,
-  statix,
-  git,
 }: let
   cargoRoot = "apps/desktop/src-tauri";
   version = "1.2.5";
@@ -32,45 +26,6 @@ in
     pname = "mindwtr";
     inherit version src;
     cargoHash = "sha256-trLrjHArwyRvst2Yiu34hI2wdd4DpOfUgj8JdQtku+U=";
-
-    passthru = {
-      updateScript = _experimental-update-script-combinators.sequence [
-        (nix-update-script {
-          extraArgs = [
-            "--flake"
-          ];
-        })
-        (lib.getExe (writeShellApplication {
-          name = "bun2nix-update-deps";
-          runtimeInputs = [
-            bun2nix
-            nix
-            statix
-          ];
-          text = ''
-            [[ -f ./flake.nix ]]
-            cd ${src}
-            bun2nix | grep -Ev '^\s*?".*?" = copyPathToStore ./.*?;$' > "$OLDPWD/pkgs/mindwtr/bun.nix"
-          '';
-        }))
-        (nix-update-script {
-          extraArgs = [
-            "--flake"
-            "--commit"
-          ];
-        })
-        (lib.getExe (writeShellApplication {
-          name = "commit-bun-lockfile";
-          runtimeInputs = [
-            git
-          ];
-          text = ''
-            git add pkgs/mindwtr/bun.nix
-            git commit --amend --no-edit
-          '';
-        }))
-      ];
-    };
 
     nativeBuildInputs = [
       bun2nix.hook
