@@ -2,7 +2,8 @@
   description = "Third party flake providing Mindwtr desktop, cloud sync server, and webapp";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # NixOS unstable
+    nixpkgs.url = "github:nixos/nixpkgs/2c423e03bbafcff28bfadc6781a4a8257f205cb5";
 
     bun2nix = {
       url = "github:therealgramdalf/bun2nix-baseline";
