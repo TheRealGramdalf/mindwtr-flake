@@ -14396,12 +14396,12 @@
       hasInstallScript = false;
     };
   };
-  "fflate@0.8.2" = fetchurl {
-    url = "https://registry.npmjs.org/fflate/-/fflate-0.8.2.tgz";
-    hash = "sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==";
+  "fflate@0.8.3" = fetchurl {
+    url = "https://registry.npmjs.org/fflate/-/fflate-0.8.3.tgz";
+    hash = "sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/fflate/-/fflate-0.8.2.tgz";
+      tarballUrl = "https://registry.npmjs.org/fflate/-/fflate-0.8.3.tgz";
       dependencies = { };
       peerDependencies = { };
       optionalDependencies = { };
@@ -21558,12 +21558,12 @@
       hasInstallScript = false;
     };
   };
-  "postcss-selector-parser@6.1.3" = fetchurl {
-    url = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.3.tgz";
-    hash = "sha512-cDoO18VWCIWRsSaws3C23b0HXRxlUknttfdNcbXnf3IGHAPRNLlXPHc6dYiatOkxW0W4uZh524Plaaw5a7WEtQ==";
+  "postcss-selector-parser@6.1.4" = fetchurl {
+    url = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.4.tgz";
+    hash = "sha512-bIoJLOmjCO1S9XdY/DcnR5hJxvrDir1PbGChrzXG3vw0/FOliy/fA3dmdhQ441kah4gKv+TwckGzex6wNS5cnQ==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.3.tgz";
+      tarballUrl = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.4.tgz";
       dependencies = {
         "cssesc" = "^3.0.0";
         "util-deprecate" = "^1.0.2";
