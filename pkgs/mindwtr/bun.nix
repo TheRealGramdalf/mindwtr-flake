@@ -15970,12 +15970,12 @@
       hasInstallScript = false;
     };
   };
-  "ip-address@10.4.0" = fetchurl {
-    url = "https://registry.npmjs.org/ip-address/-/ip-address-10.4.0.tgz";
-    hash = "sha512-oSK96Grm3aP6OrS263xVxbNDGVL7rzBtYdpGqlDG8iQdoenDoTs/nkki+DflYbAEE8Xl6o5YxhxlrKvI3nqKXQ==";
+  "ip-address@10.5.1" = fetchurl {
+    url = "https://registry.npmjs.org/ip-address/-/ip-address-10.5.1.tgz";
+    hash = "sha512-EXujUp9jyOI/chPgtqk6uy7fDq8AeCB/WlfEuPg9LN0fN9lzKAKfuDYi60SMhHwgUiEhZvVYsbGZN+RUU1INiA==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/ip-address/-/ip-address-10.4.0.tgz";
+      tarballUrl = "https://registry.npmjs.org/ip-address/-/ip-address-10.5.1.tgz";
       dependencies = { };
       peerDependencies = { };
       optionalDependencies = { };
@@ -26216,12 +26216,12 @@
       hasInstallScript = false;
     };
   };
-  "undici@6.28.0" = fetchurl {
-    url = "https://registry.npmjs.org/undici/-/undici-6.28.0.tgz";
-    hash = "sha512-LIY910g9TI13YS95lrMFrs8Rm/u/irgHeTWoKCoteeJ04CUJ92eEfj0rVn+7VKMPBpUPiUoBKfhNyLI23EE/KA==";
+  "undici@6.28.1" = fetchurl {
+    url = "https://registry.npmjs.org/undici/-/undici-6.28.1.tgz";
+    hash = "sha512-zWpdTVD54H48CIybL0rWQ3ukpb9d23wM7eH5RtfdmeP70cWHNjtfo7P4vZX+5CoDcO53J4Pu5uXp7lNfjc6DRA==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/undici/-/undici-6.28.0.tgz";
+      tarballUrl = "https://registry.npmjs.org/undici/-/undici-6.28.1.tgz";
       dependencies = { };
       peerDependencies = { };
       optionalDependencies = { };
