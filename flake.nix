@@ -3,7 +3,7 @@
 
   inputs = {
     # NixOS unstable
-    nixpkgs.url = "github:nixos/nixpkgs/8ce4ef6cb6f871616146b9fe26d2a5ae594e94fe";
+    nixpkgs.url = "github:nixos/nixpkgs/e7439b6b14ad3cc35d05608ebca9bce01a25f5f8";
 
     bun2nix = {
       url = "github:nix-community/bun2nix/pull/103/head";
