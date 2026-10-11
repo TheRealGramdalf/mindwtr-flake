@@ -14,18 +14,18 @@
   lib,
 }: let
   cargoRoot = "apps/desktop/src-tauri";
-  version = "1.3.3";
+  version = "1.3.4";
   src = fetchFromGitHub {
     owner = "dongdongbh";
     repo = "mindwtr";
     tag = "v${version}";
-    hash = "sha256-3ZI0iQsbxMMcBwde39I/7ow1bBzqsLyerXN3abto0Bk=";
+    hash = "sha256-zYJBIZ4wRQtOWTXYPFbGdZaPrOoAER4hJzs/92IE6to=";
   };
 in
   rustPlatform.buildRustPackage {
     pname = "mindwtr";
     inherit version src;
-    cargoHash = "sha256-WykLNisNJapKgEeNaILv97Ma0U7Ha+fETZewtL1O1aY=";
+    cargoHash = "sha256-39qNSA3kXeJNPtPVvcexsdri0KrT66XHojqLiSZUKBA=";
 
     nativeBuildInputs = [
       bun2nix.hook

@@ -9707,12 +9707,12 @@
       hasInstallScript = false;
     };
   };
-  "brace-expansion@5.0.9" = fetchurl {
-    url = "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.9.tgz";
-    hash = "sha512-ScQ4IuvIEF1TMlP7Zt+vjJ//9zlPb2SDcxWxM3bk8s6t6GGdJ7KO1dCcTidOPJKePW30LE/2cT7wCyPho9/Wxg==";
+  "brace-expansion@5.0.12" = fetchurl {
+    url = "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.12.tgz";
+    hash = "sha512-YovQ3rzhaLMIrDjNDMkNS01tea93qhEhG5xy8f6+R0l+dw3Ki+5sCoIoI942iuLZTHWogWktgwVDhU09iNEimQ==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.9.tgz";
+      tarballUrl = "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.12.tgz";
       dependencies = {
         "balanced-match" = "^4.0.2";
       };
@@ -14207,12 +14207,12 @@
       hasInstallScript = false;
     };
   };
-  "fast-uri@3.1.7" = fetchurl {
-    url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.7.tgz";
-    hash = "sha512-dOvZVzjdZdz7phd9v6jCbwxrBW3fK6n8Rc0CtdmM4bumzMnxywBYhuph6J819RRw/ku+rLbelwfMunktuzVVHg==";
+  "fast-uri@3.1.8" = fetchurl {
+    url = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.8.tgz";
+    hash = "sha512-GZMtZUTNRpOVIECoXwLNZS5xUGE+mVNbTB8h/7Rwh2TFWcBQiPzTgyZi05BF9UMZKkLJv8XBRJTlU7zg8+ZfMg==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.7.tgz";
+      tarballUrl = "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.8.tgz";
       dependencies = { };
       peerDependencies = { };
       optionalDependencies = { };
@@ -15510,12 +15510,12 @@
       hasInstallScript = false;
     };
   };
-  "hono@4.13.5" = fetchurl {
-    url = "https://registry.npmjs.org/hono/-/hono-4.13.5.tgz";
-    hash = "sha512-O6+/eCYRkzzzy0rPWwKLiGBR1nFuUPZynnwjxN1MBA62NNqbT0wQEzQyK2gSO5yDIDB336sXQleAhOHrzlYyKw==";
+  "hono@4.13.7" = fetchurl {
+    url = "https://registry.npmjs.org/hono/-/hono-4.13.7.tgz";
+    hash = "sha512-c8/gF9ac8Y78/agExVocyLevgR+JlpNB444Py0FSX8pJoPdYUfUzRcXtYEYGwt6l19qIlVZPN5Mfsw9jFShmQQ==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/hono/-/hono-4.13.5.tgz";
+      tarballUrl = "https://registry.npmjs.org/hono/-/hono-4.13.7.tgz";
       dependencies = { };
       peerDependencies = { };
       optionalDependencies = { };
@@ -15970,12 +15970,12 @@
       hasInstallScript = false;
     };
   };
-  "ip-address@10.5.1" = fetchurl {
-    url = "https://registry.npmjs.org/ip-address/-/ip-address-10.5.1.tgz";
-    hash = "sha512-EXujUp9jyOI/chPgtqk6uy7fDq8AeCB/WlfEuPg9LN0fN9lzKAKfuDYi60SMhHwgUiEhZvVYsbGZN+RUU1INiA==";
+  "ip-address@10.7.1" = fetchurl {
+    url = "https://registry.npmjs.org/ip-address/-/ip-address-10.7.1.tgz";
+    hash = "sha512-4OUAqU9Z1i3vCnS05hzGiFnEMDpQ+62pAD/MVQOp83fYyNC8GleCqaS0QikQBmcWCrKFiUs/B8ztRRiYOAXuCA==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/ip-address/-/ip-address-10.5.1.tgz";
+      tarballUrl = "https://registry.npmjs.org/ip-address/-/ip-address-10.7.1.tgz";
       dependencies = { };
       peerDependencies = { };
       optionalDependencies = { };
