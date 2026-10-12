@@ -4538,14 +4538,14 @@
       hasInstallScript = false;
     };
   };
-  "@modelcontextprotocol/sdk@1.29.0" = fetchurl {
-    url = "https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.29.0.tgz";
-    hash = "sha512-zo37mZA9hJWpULgkRpowewez1y6ML5GsXJPY8FI0tBBCd77HEvza4jDqRKOXgHNn867PVGCyTdzqpz0izu5ZjQ==";
+  "@modelcontextprotocol/sdk@1.32.1" = fetchurl {
+    url = "https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.32.1.tgz";
+    hash = "sha512-2DdE+SJDtzLEEWzY1ZjY7Q+VcPhcV1KisD3zI4u0XZyktsjHum1mwbMI+JaulUBi2OZk+KJAi2uPXzxichPkdw==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.29.0.tgz";
+      tarballUrl = "https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.32.1.tgz";
       dependencies = {
-        "@hono/node-server" = "^1.19.9";
+        "@hono/node-server" = "^1.19.9 || ^2.0.5";
         "ajv" = "^8.17.1";
         "ajv-formats" = "^3.0.1";
         "content-type" = "^1.0.5";
@@ -6466,6 +6466,22 @@
       hasInstallScript = false;
     };
   };
+  "@tauri-apps/api@2.12.3" = fetchurl {
+    url = "https://registry.npmjs.org/@tauri-apps/api/-/api-2.12.3.tgz";
+    hash = "sha512-9s0PKw0p4r3kFq92jhpivYSp+cSht15o0gXpZxuQd0+dV9KCexEVkNaLELVoLdJWyoH4KlfQo5h3W2LIM8siJg==";
+  } // {
+    manifest = {
+      tarballUrl = "https://registry.npmjs.org/@tauri-apps/api/-/api-2.12.3.tgz";
+      dependencies = { };
+      peerDependencies = { };
+      optionalDependencies = { };
+      optionalPeers = [ ];
+      bin = { };
+      os = [ ];
+      cpu = [ ];
+      hasInstallScript = false;
+    };
+  };
   "@tauri-apps/api@2.9.1" = fetchurl {
     url = "https://registry.npmjs.org/@tauri-apps/api/-/api-2.9.1.tgz";
     hash = "sha512-IGlhP6EivjXHepbBic618GOmiWe4URJiIeZFlB7x3czM0yDHHYviH1Xvoiv4FefdkQtn6v7TuwWCRfOGdnVUGw==";
@@ -6683,6 +6699,24 @@
       bin = {
         "tauri" = "tauri.js";
       };
+      os = [ ];
+      cpu = [ ];
+      hasInstallScript = false;
+    };
+  };
+  "@tauri-apps/plugin-deep-link@2.4.7" = fetchurl {
+    url = "https://registry.npmjs.org/@tauri-apps/plugin-deep-link/-/plugin-deep-link-2.4.7.tgz";
+    hash = "sha512-K0FQlLM6BoV7Ws2xfkh+Tnwi5VZVdkI4Vw/3AGLSf0Xvu2y86AMBzd9w/SpzKhw9ai2B6ES8di/OoGDCExkOzg==";
+  } // {
+    manifest = {
+      tarballUrl = "https://registry.npmjs.org/@tauri-apps/plugin-deep-link/-/plugin-deep-link-2.4.7.tgz";
+      dependencies = {
+        "@tauri-apps/api" = "^2.10.1";
+      };
+      peerDependencies = { };
+      optionalDependencies = { };
+      optionalPeers = [ ];
+      bin = { };
       os = [ ];
       cpu = [ ];
       hasInstallScript = false;
@@ -10726,16 +10760,17 @@
       hasInstallScript = false;
     };
   };
-  "compression@1.8.1" = fetchurl {
-    url = "https://registry.npmjs.org/compression/-/compression-1.8.1.tgz";
-    hash = "sha512-9mAqGPHLakhCLeNyxPkK4xVo746zQ/czLH1Ky+vkitMnWfWZps8r0qXuwhwizagCRttsL4lfG4pIOvaWLpAP0w==";
+  "compression@1.8.2" = fetchurl {
+    url = "https://registry.npmjs.org/compression/-/compression-1.8.2.tgz";
+    hash = "sha512-o8vI5RE5A6EVVOd9o41jKp41aJom+QTEO/Bx8MYNjexMo/Bv2WOjUfZr+aL0WnYSgymUy6zeguqLTsIhV0gMvQ==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/compression/-/compression-1.8.1.tgz";
+      tarballUrl = "https://registry.npmjs.org/compression/-/compression-1.8.2.tgz";
       dependencies = {
         "bytes" = "3.1.2";
         "compressible" = "~2.0.18";
         "debug" = "2.6.9";
+        "destroy" = "1.2.0";
         "negotiator" = "~0.6.4";
         "on-headers" = "~1.1.0";
         "safe-buffer" = "5.2.1";
@@ -21427,12 +21462,12 @@
       hasInstallScript = false;
     };
   };
-  "postcss-selector-parser@6.1.4" = fetchurl {
-    url = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.4.tgz";
-    hash = "sha512-bIoJLOmjCO1S9XdY/DcnR5hJxvrDir1PbGChrzXG3vw0/FOliy/fA3dmdhQ441kah4gKv+TwckGzex6wNS5cnQ==";
+  "postcss-selector-parser@7.1.6" = fetchurl {
+    url = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-7.1.6.tgz";
+    hash = "sha512-7qASPzhKF2l2KLboRZux8CCTRMdGiV08vWmyKzPz22qZ7ZjQBOeY7rNzNoCLSUiftJ7HUq0GERHmxw/t0dCdMw==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.4.tgz";
+      tarballUrl = "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-7.1.6.tgz";
       dependencies = {
         "cssesc" = "^3.0.0";
         "util-deprecate" = "^1.0.2";
@@ -21744,12 +21779,12 @@
       hasInstallScript = false;
     };
   };
-  "proxy-addr@2.0.7" = fetchurl {
-    url = "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz";
-    hash = "sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==";
+  "proxy-addr@2.0.8" = fetchurl {
+    url = "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.8.tgz";
+    hash = "sha512-5nnx0yGyVUcY6t9RnWcARWtwT9F1D8O9rt08htPvnd49W1IgZtmLkhu9WfMzQj1cFxjHIO6connUNVW5k7AVyQ==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz";
+      tarballUrl = "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.8.tgz";
       dependencies = {
         "forwarded" = "0.2.0";
         "ipaddr.js" = "1.9.1";
@@ -24115,12 +24150,12 @@
       hasInstallScript = false;
     };
   };
-  "shell-quote@1.10.0" = fetchurl {
-    url = "https://registry.npmjs.org/shell-quote/-/shell-quote-1.10.0.tgz";
-    hash = "sha512-w1aiOKwKuRgtwAReIIj89puqg+I7GvX4IbLrvmhXbzQsj1+Zwi4VO3+fa6ZF91TWSjIxoEkKnMeHcLEODK5ZXA==";
+  "shell-quote@1.12.0" = fetchurl {
+    url = "https://registry.npmjs.org/shell-quote/-/shell-quote-1.12.0.tgz";
+    hash = "sha512-PcByqNyT/38F2kDNi006HAMRJaULuBzq/FOsw3qdZvX/GA9W/jamDaRskgHjubHiftXK5sIFxLNkvrXUwcof6Q==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/shell-quote/-/shell-quote-1.10.0.tgz";
+      tarballUrl = "https://registry.npmjs.org/shell-quote/-/shell-quote-1.12.0.tgz";
       dependencies = { };
       peerDependencies = { };
       optionalDependencies = { };
@@ -24426,12 +24461,12 @@
       hasInstallScript = false;
     };
   };
-  "source-map-js@1.2.1" = fetchurl {
-    url = "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz";
-    hash = "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==";
+  "source-map-js@1.2.2" = fetchurl {
+    url = "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.2.tgz";
+    hash = "sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==";
   } // {
     manifest = {
-      tarballUrl = "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz";
+      tarballUrl = "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.2.tgz";
       dependencies = { };
       peerDependencies = { };
       optionalDependencies = { };
