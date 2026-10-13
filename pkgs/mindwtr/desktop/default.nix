@@ -39,7 +39,6 @@ in
       cargo-tauri.hook
       rustPlatform.bindgenHook # whisper-rs-sys
       cmake # ^
-      #perl # openssl
       pkg-config
       wrapGAppsHook3
     ];
