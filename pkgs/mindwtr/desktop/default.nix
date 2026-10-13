@@ -23,7 +23,7 @@
     repo = "mindwtr";
     rev = "b912ef2a217e9e4fe77a8d8e4a2db4979e45c679";
     #tag = "v${version}";
-    hash = "sha256-xqbom//GBoVAAtT032XA7QgVwxGx9v/swPa69fmYNIA=";
+    hash = "sha256-m7wOLcosmCf0rkEtLn6U0v7vOwc2qjbxpPsx5rJGOpo=";
   };
 in
   rustPlatform.buildRustPackage {
