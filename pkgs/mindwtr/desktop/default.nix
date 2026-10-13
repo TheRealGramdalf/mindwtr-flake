@@ -51,8 +51,15 @@ in
       gsettings-desktop-schemas
       glib-networking
       openssl
-      glib # gsettings & gdbus are needed for theme detection
+      glib
     ];
+
+      preFixup = ''
+        gappsWrapperArgs+=(
+          # gsettings & gdbus are needed for theme detection
+          --prefix PATH : "${lib.makeBinPath [glib]}"
+        )
+      '';
 
     # Rename the `.desktop` file to make sure the app ID links correctly
     postFixup = ''
