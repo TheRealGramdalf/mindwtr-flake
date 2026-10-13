@@ -5,20 +5,24 @@
   webkitgtk_4_1,
   rustPlatform,
   pkg-config,
-  perl,
   alsa-lib,
   cmake,
   libayatana-appindicator,
   gtk3,
   wrapGAppsHook3,
   lib,
+  gsettings-desktop-schemas,
+  glib-networking,
+  openssl,
+  glib,
 }: let
   cargoRoot = "apps/desktop/src-tauri";
-  version = "1.3.6";
+  version = "1.3.6-unstable";
   src = fetchFromGitHub {
     owner = "dongdongbh";
     repo = "mindwtr";
-    tag = "v${version}";
+    rev = "b912ef2a217e9e4fe77a8d8e4a2db4979e45c679";
+    #tag = "v${version}";
     hash = "sha256-xqbom//GBoVAAtT032XA7QgVwxGx9v/swPa69fmYNIA=";
   };
 in
@@ -27,12 +31,15 @@ in
     inherit version src;
     cargoHash = "sha256-Ikc4xAyFxLBbjLD13p9yOh1dQIIoEtCwRPSBG6nQac4=";
 
+    # Upstream issues, which include guidance given, can be found here: https://github.com/dongdongbh/Mindwtr/issues/996
+    env.OPENSSL_NO_VENDOR = "1";
+
     nativeBuildInputs = [
       bun2nix.hook
       cargo-tauri.hook
       rustPlatform.bindgenHook # whisper-rs-sys
       cmake # ^
-      perl # openssl
+      #perl # openssl
       pkg-config
       wrapGAppsHook3
     ];
@@ -42,6 +49,10 @@ in
       webkitgtk_4_1
       gtk3
       libayatana-appindicator #libappindicator-sys
+      gsettings-desktop-schemas
+      glib-networking
+      openssl
+      glib # gsettings & gdbus are needed for theme detection
     ];
 
     # Rename the `.desktop` file to make sure the app ID links correctly
@@ -57,6 +68,8 @@ in
         );
       };
     };
+    # cmake is needed by whisper-rs-sys but there is no root CMakeLists.txt.
+    dontUseCmakeConfigure = true;
     dontUseBunBuild = true;
     dontUseBunCheck = true;
     dontUseBunInstall = true;
