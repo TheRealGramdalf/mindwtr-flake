@@ -15,6 +15,8 @@
   glib-networking,
   openssl,
   glib,
+  desktop-file-utils,
+  xdg-utils,
   fetchpatch2,
 }: let
   cargoRoot = "apps/desktop/src-tauri";
@@ -62,15 +64,18 @@ in
       gsettings-desktop-schemas
       glib-networking
       openssl
+      # wrapper
       glib
+      xdg-utils
+      desktop-file-utils
     ];
 
-      preFixup = ''
-        gappsWrapperArgs+=(
-          # gsettings & gdbus are needed for theme detection
-          --prefix PATH : "${lib.makeBinPath [glib]}"
-        )
-      '';
+    preFixup = ''
+      gappsWrapperArgs+=(
+        # gsettings & gdbus are needed for theme detection
+        --prefix PATH : "${lib.makeBinPath [glib xdg-utils desktop-file-utils]}"
+      )
+    '';
 
     # Rename the `.desktop` file to make sure the app ID links correctly
     postFixup = ''
