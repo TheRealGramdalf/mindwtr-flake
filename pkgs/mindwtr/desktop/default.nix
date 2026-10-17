@@ -15,21 +15,32 @@
   glib-networking,
   openssl,
   glib,
+  fetchpatch2,
 }: let
   cargoRoot = "apps/desktop/src-tauri";
-  version = "1.3.6-unstable";
+  version = "1.3.6";
   src = fetchFromGitHub {
     owner = "dongdongbh";
     repo = "mindwtr";
-    rev = "b912ef2a217e9e4fe77a8d8e4a2db4979e45c679";
-    #tag = "v${version}";
-    hash = "sha256-m7wOLcosmCf0rkEtLn6U0v7vOwc2qjbxpPsx5rJGOpo=";
+    tag = "v${version}";
+    hash = "sha256-xqbom//GBoVAAtT032XA7QgVwxGx9v/swPa69fmYNIA=";
   };
 in
   rustPlatform.buildRustPackage {
     pname = "mindwtr";
     inherit version src;
     cargoHash = "sha256-Ikc4xAyFxLBbjLD13p9yOh1dQIIoEtCwRPSBG6nQac4=";
+
+    # Patches for unreleased fixes. Fetch by appending `.patch`/`.diff` to a commit/PR and passing the URL through `nurl`
+    # You will likely need to `excludes = ["docs/*"];` if the patch does not apply. When doing so, empty the `hash` argument to recompute the changes.
+    patches = [
+      # Remove after 1.3.7 releases
+      (fetchpatch2 {
+        url = "https://github.com/dongdongbh/Mindwtr/commit/b912ef2a217e9e4fe77a8d8e4a2db4979e45c679.patch";
+        hash = "sha256-V16OoFgYa5O07f3hAcrUWhZ2DRkc3qyvsPjxsc9glS4=";
+        excludes = ["docs/*"];
+      })
+    ];
 
     # Upstream issues, which include guidance given, can be found here: https://github.com/dongdongbh/Mindwtr/issues/996
     env.OPENSSL_NO_VENDOR = "1";
