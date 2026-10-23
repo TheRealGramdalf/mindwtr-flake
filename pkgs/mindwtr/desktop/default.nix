@@ -20,18 +20,18 @@
   fetchpatch2,
 }: let
   cargoRoot = "apps/desktop/src-tauri";
-  version = "1.3.6";
+  version = "1.3.7";
   src = fetchFromGitHub {
     owner = "dongdongbh";
     repo = "mindwtr";
     tag = "v${version}";
-    hash = "sha256-xqbom//GBoVAAtT032XA7QgVwxGx9v/swPa69fmYNIA=";
+    hash = "sha256-IvvSpbMw4Ef52N/zjI2C8IKca4gGbTzUecuszvEsKKE=";
   };
 in
   rustPlatform.buildRustPackage {
     pname = "mindwtr";
     inherit version src;
-    cargoHash = "sha256-Ikc4xAyFxLBbjLD13p9yOh1dQIIoEtCwRPSBG6nQac4=";
+    cargoHash = "sha256-TmV/68N4tOj/ANt7esyGZv7ymzKzMC9ZIp+7pppjPVg=";
 
     # Patches for unreleased fixes. Fetch by appending `.patch`/`.diff` to a commit/PR and passing the URL through `nurl`
     # You will likely need to `excludes = ["docs/*"];` if the patch does not apply. When doing so, empty the `hash` argument to recompute the changes.
