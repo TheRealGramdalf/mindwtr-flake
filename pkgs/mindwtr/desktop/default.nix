@@ -36,18 +36,6 @@ in
     # Patches for unreleased fixes. Fetch by appending `.patch`/`.diff` to a commit/PR and passing the URL through `nurl`
     # You will likely need to `excludes = ["docs/*"];` if the patch does not apply. When doing so, empty the `hash` argument to recompute the changes.
     patches = [
-      # Remove after 1.3.7 releases
-      # Failing tests relying on python
-      (fetchpatch2 {
-        url = "https://github.com/dongdongbh/Mindwtr/commit/b912ef2a217e9e4fe77a8d8e4a2db4979e45c679.patch";
-        hash = "sha256-V16OoFgYa5O07f3hAcrUWhZ2DRkc3qyvsPjxsc9glS4=";
-        excludes = ["docs/*"];
-      })
-      # Fix desktop entry to include %u
-      (fetchpatch2 {
-        url = "https://github.com/dongdongbh/Mindwtr/commit/f34552f0af7b8bc0742b389c45c2af98b515ed53.patch";
-        hash = "sha256-JOoBzQgflwn2ggK90VuQ8lYBWSm9hqLonnnGRJ4HB1s=";
-      })
     ];
 
     # Upstream issues, which include guidance given, can be found here: https://github.com/dongdongbh/Mindwtr/issues/996
